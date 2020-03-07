@@ -40,11 +40,14 @@ namespace cSharp___CLASSES___Student__Hobby__Sport
             {
                 MessageBox.Show($"Football already exist!");
             }
+
             if (!Sport.Contains("Soccer")) { sportList.Add(new Sport("Soccer", true, 'B')); }
             if (!Sport.Contains("Tennis")) { sportList.Add(new Sport("Tennis", true, 'B')); }
             if (!Sport.Contains("Baseball")) { sportList.Add(new Sport("Baseball", true, 'M')); }
-            if (!Sport.Contains("Swimming")) { sportList.Add(new Sport("Swimming", true, 'B')); }
+            if (!Sport.Contains("Swimming")) { sportList.Add(new Sport("Swimming", false, 'B')); }
             if (!Sport.Contains("Softball")) { sportList.Add(new Sport("Softball", true, 'F')); }
+            if (!Sport.Contains("Bowling")) { sportList.Add(new Sport("Bowling", false, 'B')); }
+
 
             TxtNumSports.Text = Convert.ToString(Sport.numOfSports);
             CbxSport.Items.Clear();
@@ -52,65 +55,55 @@ namespace cSharp___CLASSES___Student__Hobby__Sport
             {
                 CbxSport.Items.Add(s.Name);
             }
-            //SerializeToFile(sportList, "sportList.txt");
-        }
+}
 
-        private void BtnAddHobby_Click(object sender, EventArgs e)
-        {
-            if (!Hobby.Contains("Computers"))
-            {
-                hobbyList.Add(new Hobby("Computers"));
-            }
-            else
-            {
-                MessageBox.Show("Computers already exist!");
-            }
-            if (!Hobby.Contains("Stamps")) { hobbyList.Add(new Hobby("Stamps")); }
-            if (!Hobby.Contains("Coins")) { hobbyList.Add(new Hobby("Coins")); }
-            if (!Hobby.Contains("Baseball Cards")) { hobbyList.Add(new Hobby("Baseball Cards")); }
+private void BtnAddHobby_Click(object sender, EventArgs e)
+{
+    if (!Hobby.Contains("Computers"))
+    {
+        hobbyList.Add(new Hobby("Computers"));
+    }
+    else
+    {
+        MessageBox.Show("Computers already exist!");
+    }
+    if (!Hobby.Contains("Stamps")) { hobbyList.Add(new Hobby("Stamps")); }
+    if (!Hobby.Contains("Coins")) { hobbyList.Add(new Hobby("Coins")); }
+    if (!Hobby.Contains("Baseball Cards")) { hobbyList.Add(new Hobby("Baseball Cards")); }
 
-            TxtNumHobbies.Text = Convert.ToString(Hobby.numOfHobbies);
-            CbxHobby.Items.Clear();
-            foreach (Hobby h in hobbyList)
-            {
-                CbxHobby.Items.Add(h.Name);
-            }
-        }
+    TxtNumHobbies.Text = Convert.ToString(Hobby.numOfHobbies);
+    CbxHobby.Items.Clear();
+    foreach (Hobby h in hobbyList)
+    {
+        CbxHobby.Items.Add(h.Name);
+    }
+}
 
-        private void BtnAddStudent_Click(object sender, EventArgs e)
-        {
-            if (!Student.Contains("John Smith"))
-            {
-                studentList.Add(new Student("John Smith", 10, 15));
-            }
-            else
-            {
-                MessageBox.Show("John Smith already exist!");
-            }
-            if (!Student.Contains("Joseph Duby")) { studentList.Add(new Student("Joseph Duby", 9, 14)); }
-            if (!Student.Contains("Mary Harris")) { studentList.Add(new Student("Mary Harris", 10, 15)); }
-            if (!Student.Contains("Ellen Bally")) { studentList.Add(new Student("Ellen Bally", 12, 17)); }
+private void BtnAddStudent_Click(object sender, EventArgs e)
+{
+    if (!Student.Contains("John Smith"))
+    {
+        studentList.Add(new Student("John Smith", 10, 15));
+    }
+    else
+    {
+        MessageBox.Show("John Smith already exist!");
+    }
+    if (!Student.Contains("Joseph Duby")) { studentList.Add(new Student("Joseph Duby", 9, 14)); }
+    if (!Student.Contains("Mary Harris")) { studentList.Add(new Student("Mary Harris", 10, 15)); }
+    if (!Student.Contains("Ellen Bally")) { studentList.Add(new Student("Ellen Bally", 12, 17)); }
 
-            TxtNumStudents.Text = Convert.ToString(Student.numOfStudents);
-            CbxStudent.Items.Clear();
-            foreach (Student s in studentList)
-            {
-                CbxStudent.Items.Add(s.Name);
-            }
-        }
+    TxtNumStudents.Text = Convert.ToString(Student.numOfStudents);
+    CbxStudent.Items.Clear();
+    foreach (Student s in studentList)
+    {
+        CbxStudent.Items.Add(s.Name);
+    }
+}
 
-        //private void SerializeToFile(List<Sport> sportList, string fileName)
-        //{
-        //    using (FileStream stream = new FileStream(fileName, FileMode.Create))
-        //    {
-        //        XmlSerializer XML = new XmlSerializer(typeof(List<Sport>));
-        //        XML.Serialize(stream, sportList);
-        //    }
-        //}
-
-        private void BtnExit_Click(object sender, EventArgs e)
-        {
-            Application.Exit();
-        }
+private void BtnExit_Click(object sender, EventArgs e)
+{
+    Application.Exit();
+}
     }
 }
